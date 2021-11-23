@@ -11,6 +11,7 @@ mongoose.connect("mongodb://localhost:27017/blog", {
 app.set("view engine", "ejs");
 
 app.use("/articles", articleRouter); //articles routes are added after /articles
+app.use(express.urlencoded({ extended: false }));
 
 app.get("/", (req, res) => {
   const articles = [
